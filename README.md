@@ -9,3 +9,8 @@ the created action in a workflow should be like this:
 <p align="center">
   <img src="https://github.com/igabaydulin/helm-check-action-sample/blob/master/resources/action-settings.png">
 </p>
+
+## Workflow output
+
+If the setup was made without errors workflow will be executed for every new commit (execution result will be displayd in pull requests and commits page).
+[Here](https://github.com/igabaydulin/helm-check-action-sample/runs/75704141) is an output example
