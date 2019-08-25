@@ -6,10 +6,10 @@ This repository is a "How to" example for [helm-check](https://github.com/igabay
 
 ## Action settings
 
-You can use raw workflow [file](https://raw.githubusercontent.com/igabaydulin/helm-check-action-sample/master/.github/workflows/push.yml) as an example for your own repo;
-the created action in a workflow should be like this:
+You can use raw workflow [file](https://raw.githubusercontent.com/igabaydulin/helm-check-action-sample/master/.github/workflows/push.yml) as an example for your own repo.
+New GitHub Actions editor looks like this:
 <p align="center">
-  <img src="https://github.com/igabaydulin/helm-check-action-sample/blob/master/resources/action-settings.png">
+  <img src="https://github.com/igabaydulin/helm-check-action-sample/blob/master/resources/new-action-settings.png">
 </p>
 
 ## Workflow output
