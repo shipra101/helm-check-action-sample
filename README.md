@@ -1,6 +1,6 @@
 # Description
 
-_note: Moved to a new GitHub Actions syntax ([https://help.github.com/en/articles/migrating-github-actions-from-hcl-syntax-to-yaml-syntax](read about new GitHub Actions syntax))_
+_note: Moved to a new GitHub Actions syntax ([read about new GitHub Actions syntax](https://help.github.com/en/articles/migrating-github-actions-from-hcl-syntax-to-yaml-syntax))_
 This repository is a "How to" example for [helm-check](https://github.com/igabaydulin/helm-check-action) [github action](https://github.com/features/actions) usage
 
 ## Action settings
