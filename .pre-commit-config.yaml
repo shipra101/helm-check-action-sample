@@ -1,0 +1,49 @@
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
+#
+# All developers need to install git hook scripts with:
+# "pre-commit install --hook-type pre-commit --hook-type commit-msg".
+#
+# Use "pre-commit run" or "pre-commit run --all-files" to manually run all hooks.
+#
+default_stages: [commit]
+repos:
+- repo: https://github.com/ibm/detect-secrets
+  # See https://github.com/ibm/detect-secrets.
+  # See https://w3.ibm.com/w3publisher/detect-secrets.
+  #
+  # If you desire to use a specific version of detect-secrets, you can replace `master` with other git revisions such as branch, tag or commit sha.
+  # You are encouraged to use static refs such as tags, instead of branch name.
+  #
+  # Running "pre-commit autoupdate" automatically updates rev to latest tag.
+  rev: 0.13.1+ibm.61.dss
+  hooks:
+    - id: detect-secrets # pragma: whitelist secret
+      # Add options for detect-secrets-hook binary. You can run `detect-secrets-hook --help` to list out all possible options.
+      # You may also run `pre-commit run detect-secrets` to preview the scan result.
+      # When "--baseline" without "--use-all-plugins", pre-commit will scan with just plugins in baseline file.
+      # When "--baseline" with "--use-all-plugins", pre-commit will scan with all available plugins.
+      # Add "--fail-on-unaudited" to fail pre-commit for unaudited potential secrets.
+      #
+      # Need to run "detect-secrets audit .secrets.baseline" to approve secrets baseline file.
+      args: [--baseline, .secrets.baseline, --use-all-plugins, --fail-on-unaudited]
+- repo: https://github.com/pre-commit/pre-commit-hooks
+  rev: v4.4.0
+  hooks:
+      # https://github.com/pre-commit/pre-commit-hooks#check-added-large-files
+    - id: check-added-large-files
+      # https://github.com/pre-commit/pre-commit-hooks#check-executables-have-shebangs
+    - id: check-executables-have-shebangs
+      # https://github.com/pre-commit/pre-commit-hooks#check-shebang-scripts-are-executable
+    - id: check-shebang-scripts-are-executable
+      # https://github.com/pre-commit/pre-commit-hooks#check-json
+    - id: check-json
+      # https://github.com/pre-commit/pre-commit-hooks#check-merge-conflict
+    - id: check-merge-conflict
+      # https://github.com/pre-commit/pre-commit-hooks#check-yaml
+    - id: check-yaml
+      # https://github.com/pre-commit/pre-commit-hooks#mixed-line-ending
+    - id: mixed-line-ending
+      args: ['--fix=lf']
+      # https://github.com/pre-commit/pre-commit-hooks#trailing-whitespace
+    - id: trailing-whitespace
