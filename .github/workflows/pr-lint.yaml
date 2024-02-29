@@ -1,6 +1,6 @@
 name: Lint Charts 
 
-on: push
+on: pull_request
 
 jobs:
   lint-test:
