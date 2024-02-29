@@ -1,40 +1,14 @@
-name: Lint Charts 
+name: pre-commit
 
-on: pull_request
+on:
+  #pull_request:
+  push:
+    branches: [test_2]
 
 jobs:
-  lint-test:
+  pre-commit:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v1
-
-      - name: Set up chart-testing
-        uses: helm/chart-testing-action@v2.6.0
-
-      - name: Run chart-testing (list-changed)
-        id: list-changed
-        run: |
-          changed=$(ct list-changed --target-branch ${{ github.event.repository.default_branch }})
-          if [[ -n "$changed" ]]; then
-            echo "changed=true" >> "$GITHUB_OUTPUT"
-          fi
-
-      - name: Run chart-testing (lint)
-        if: steps.list-changed.outputs.changed == 'true'
-        run: ct lint --target-branch ${{ github.event.repository.default_branch }}
-
-  pre-comit:
-    runs-on: ubuntu-latest
-    steps:
-    - run: python -m pip install pre-commit
-      shell: bash
-    - run: python -m pip freeze --local
-      shell: bash
-    - uses: actions/cache@v4
-      with:
-        path: ~/.cache/pre-commit
-        key: pre-commit-3|${{ env.pythonLocation }}|${{ hashFiles('.pre-commit-config.yaml') }}
-    - run: pre-commit run --show-diff-on-failure --color=always ${{ inputs.extra_args }} --all-files
-      shell: bash
-      
+    - uses: actions/checkout@v3
+    - uses: actions/setup-python@v3
+    - uses: pre-commit/action@v3.0.1
