@@ -4,7 +4,7 @@ metadata:
   name: {{ template "dry-run-sample.fullname" . }}
   labels:
     app: {{ template "dry-run-sample.name" . }}
-    chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}"
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
 spec:
