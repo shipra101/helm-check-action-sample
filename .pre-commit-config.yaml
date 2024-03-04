@@ -49,4 +49,3 @@ repos:
       args: ['--fix=lf']
       # https://github.com/pre-commit/pre-commit-hooks#trailing-whitespace
     - id: trailing-whitespace
-      args: ["--fix"]
