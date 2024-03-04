@@ -42,6 +42,8 @@ repos:
     - id: check-merge-conflict
       # https://github.com/pre-commit/pre-commit-hooks#check-yaml
     - id: check-yaml
+      # exclude the helm template files since they are not truly yaml.
+      exclude: ^.*\/templates\/.*\.yaml$
       # https://github.com/pre-commit/pre-commit-hooks#mixed-line-ending
     - id: mixed-line-ending
       args: ['--fix=lf']
