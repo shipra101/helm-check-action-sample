@@ -36,5 +36,5 @@ jobs:
       with:
         path: ~/.cache/pre-commit
         key: pre-commit-3|${{ env.pythonLocation }}|${{ hashFiles('.pre-commit-config.yaml') }}
-    - run: pre-commit run --show-diff-on-failure --color=always ${{ inputs.extra_args }} --all-files
+    - run: pre-commit run --show-diff-on-failure --color=always ${{ inputs.extra_args }} --files $(branch_name=$(git rev-parse --abbrev-ref HEAD); git diff --name-only main..${branch_name} )
       shell: bash
